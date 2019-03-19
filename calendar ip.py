@@ -42,15 +42,19 @@ def number_of_days(x, y):
         return(30)
 
 def days_left(x, y, z):
-    z = leap_year(year)
+    leap_year(year)
     for i in range(y - 1):
-            if(y % 2 == 1):
-                x = x + 31
-            elif(y % 2 == 0):
-                x = x + 30 ##FIXIXIXIXIXIIXif(z == 1):        
-    if(z == 1):
+        if(i % 2 == 1):
+            x = x + 31
+        elif(i == 2 and leap_year == 1):
+            x = x + 29
+        elif(i == 2 and leap_year == 0):
+            x = x + 28
+        elif(i % 2 == 0):
+            x = x + 30 ##FIXIXIXIXIXIIX    
+    if(leap_year == 1):
         return(366 - x)
-    elif(z == 0):
+    elif(leap_year == 0):
         return(365 - x)
     
 def number_of_days_left_month(x, y):
@@ -82,8 +86,8 @@ if(menu == 1):
     print(number_of_days(day, month))
 if(menu == 2):
     days_left(day, month, year)
+    print(days_left(day, month, year))
 if(menu == 3):
     number_of_days_left_month(day, month)
     print(number_of_days_left_month(day, month))
     
-leap_year(year)
