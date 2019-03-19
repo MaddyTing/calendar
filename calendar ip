@@ -43,9 +43,12 @@ def number_of_days(x, y):
 
 def days_left(x, y, z):
     z = leap_year(year)
+    for i in range(y):
+            if(y % 2 == 1):
+                x = x + 31
+            elif(y % 2 == 0):
+                x = x + 30 ##FIXIXIXIXIXIIXif(z == 1):        
     if(z == 1):
-        for i in range(y):
-            
         return(366 - x)
     elif(z == 0):
         return(365 - x)
