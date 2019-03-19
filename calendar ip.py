@@ -43,7 +43,7 @@ def number_of_days(x, y):
 
 def days_left(x, y, z):
     z = leap_year(year)
-    for i in range(y):
+    for i in range(y - 1):
             if(y % 2 == 1):
                 x = x + 31
             elif(y % 2 == 0):
