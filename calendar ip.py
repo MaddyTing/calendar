@@ -23,9 +23,9 @@ days_left: This will accept the date as parameters and then calculate the number
 '''
 
 def leap_year(x):
-    if(x % 4 == 0):
+    if(x % 4 == 0 and x % 100 != 0):
         return (1)
-    elif(x % 100 == 0 and x % 400 == 0):
+    if(x % 100 == 0 and x % 400 == 0):
         return (1)
     else:
         return (0)
@@ -43,15 +43,16 @@ def number_of_days(x, y):
 
 def days_left(x, y, z):
     leap_year(year)
-    for i in range(y - 1):
+    x = 0
+    for i in range(y):
         if(i % 2 == 1):
             x = x + 31
+        elif(i % 2 == 0):
+            x = x + 30 ##FIXIXIXIXIXIIX  
         elif(i == 2 and leap_year == 1):
             x = x + 29
         elif(i == 2 and leap_year == 0):
-            x = x + 28
-        elif(i % 2 == 0):
-            x = x + 30 ##FIXIXIXIXIXIIX    
+            x = x + 28          
     if(leap_year == 1):
         return(366 - x)
     elif(leap_year == 0):
