@@ -85,18 +85,17 @@ def days_left(x, y, z):
         elif(i == 2 and leapyear == 0):
             x = x + 28   
 #FIRST HALF OF YEAR
-        elif(i % 2 == 1 and i >= 6):
+        elif(i % 2 == 1 and i >= 5):
             x = x + 31
-        elif(i % 2 == 0 and i >= 6):
+        elif(i % 2 == 0 and i >= 5):
             x = x + 30 
 #SECOND HALF OF YEAR
-        elif(i % 2 == 0 and i < 6):
+        elif(i % 2 == 0 and i < 5):
             x = x + 31
-        elif(i % 2 == 1 and i < 6):
+        elif(i % 2 == 1 and i < 5):
             x = x + 30
 #DAYS LEFT               
     x = x + days
-    print(x)
     if(leapyear == 1):
         return(366 - x)
     elif(leapyear == 0):
@@ -108,6 +107,7 @@ day = int(input("Day: "))
 month = int(input("Month: "))
 year = int(input("Year: "))  
 
+#DATE VALID/INVALID CHECK
 checkin(day, month)
 while (checkin(day, month) == False):
     print("\nYour date was invalid. Please try again.\n")
@@ -116,16 +116,17 @@ while (checkin(day, month) == False):
     year = int(input("Year: "))  
     checkin(day, month)
 
+#PRINT DATE
 print("\nDate: " + str(month) + "/" + str(day) + "/" + str(year))
 
-menu = int(input("\nMenu: " + "\n1)\tCalculate the number of days in the given month." + "\n2)\tCalculate the number of days left in the given year.\n"))
+#MENU
+menu = int(input("\nMenu: " + "\n1)\tCalculate the number of days in the given month." + "\n2)\tCalculate the number of days left in the given year.\n\n"))
 
+#MENU ACTION
 if(menu == 1):
     number_of_days(month, year)
-    print(leap_year(year))
     print(number_of_days(month, year))
 if(menu == 2):
     days_left(day, month, year)
-    print(leap_year(year))
     print(days_left(day, month, year))
 
