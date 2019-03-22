@@ -1,3 +1,5 @@
+#Does not have Option 3
+
 #DATE VALID/INVALID??
 def checkin(x, y, z):
 #MONTH INVALID
