@@ -1,5 +1,7 @@
 
-while (enterevent != "NO"):
+https://py3.codeskulptor.org/#user303_zZfwJIJqyF_0.py
+    
+    while (enterevent != "NO"):
     eventname = input("Enter the event name: ")
     month = int(input("Month: "))
     day = int(input("Day: "))
