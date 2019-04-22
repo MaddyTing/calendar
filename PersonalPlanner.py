@@ -6,6 +6,7 @@ while (enterevent != "NO"):
     year = int(input("Year: "))
 
     '''
+'''
 In this program you will create a personal organizer. 
 Using parallel arrays you will store the following information on 
 each event in your organizer:
@@ -49,10 +50,9 @@ def addtolist(eventname, month, day, year):
     daylist.append(day)
     yearlist.append(year)
  
-def monthconversion(month):
-    for i in range(len(monthlist)):
-        j = monthlist[i]
-        return monthname[j + 1]
+def monthconversion(month, i):
+    j = monthlist[i]
+    return monthname[j - 1]
 
 ##################  MAIN
 eventname = input("Enter the event name: ")
@@ -72,11 +72,7 @@ if(month == 2 and day > 29):
 if(day < 1 or day > 31):
     day = 1
 
-monthconversion(month)
 addtolist(eventname, month, day, year)
 for i in range(len(eventlist)):
     print(eventlist[i])
-    print("Date: " + monthconversion)
-    print(monthlist[i])
-    print(daylist[i])
-    print(yearlist[i])
+    print("Date: " + monthconversion(month, i) + " " + str(daylist[i]) + ", " + str(yearlist[i]))
