@@ -87,7 +87,6 @@ while(enterevent != "NO"):
     month = int(input("Month: "))
     day = int(input("Day: "))
     year = int(input("Year: "))
-    enterevent = input("Do you want to enter another date? NO to stop. ")
     
     #Checking validity of month, day, year
     if(month > 12 or month < 1):
@@ -101,6 +100,8 @@ while(enterevent != "NO"):
     if(day < 1 or day > 31):
         day = 1
     addtolist(eventname, month, day, year)
+    
+   	enterevent = input("Do you want to enter another date? NO to stop. ")
 
 #### ONCE FINISHED
 print("******************** List of Events ********************")
@@ -108,4 +109,9 @@ for i in range(len(eventlist)):
     print(eventlist[i])
     print("Date: " + monthconversion(month, i) + " " + str(daylist[i]) + ", " + str(yearlist[i]))
     
-specificmonth = "
+specificmonth = int(input("What month would you like to see? (Enter the month number) "))
+print("\n********** Events in " + monthconversion(specificmonth, i) + " **********")
+
+for x in range(specificmonth):
+    print(eventlist[x])
+    print("Date: " + monthconversion(month, i) + " " + str(daylist[i]) + ", " + str(y
