@@ -1,13 +1,3 @@
-
-https://py3.codeskulptor.org/#user303_zZfwJIJqyF_0.py
-    
-    while (enterevent != "NO"):
-    eventname = input("Enter the event name: ")
-    month = int(input("Month: "))
-    day = int(input("Day: "))
-    year = int(input("Year: "))
-
-    '''
 '''
 In this program you will create a personal organizer. 
 Using parallel arrays you will store the following information on 
@@ -56,6 +46,14 @@ def monthconversion(month, i):
     j = monthlist[i]
     return monthname[j - 1]
 
+def specmonth(specificmonth):
+    print("\n********** Events in " + monthconversion(specificmonth, i) + " **********")
+
+    for x in range(len(eventlist)):
+        if(str(monthlist[x]).find(str(specificmonth)) > -1):
+            print(eventlist[x])
+            print("Date: " + monthconversion(month, x) + " " + str(daylist[x]) + ", " + str(yearlist[x]))
+
 ##################  MAIN
 '''
 eventname = input("Enter the event name: ")
@@ -103,17 +101,13 @@ while(enterevent != "NO"):
         day = 1
     addtolist(eventname, month, day, year)
     
-   	enterevent = input("Do you want to enter another date? NO to stop. ")
+    enterevent = input("Do you want to enter another date? NO to stop. ")
 
 #### ONCE FINISHED
 print("******************** List of Events ********************")
 for i in range(len(eventlist)):
     print(eventlist[i])
     print("Date: " + monthconversion(month, i) + " " + str(daylist[i]) + ", " + str(yearlist[i]))
-    
-specificmonth = int(input("What month would you like to see? (Enter the month number) "))
-print("\n********** Events in " + monthconversion(specificmonth, i) + " **********")
 
-for x in range(specificmonth):
-    print(eventlist[x])
-    print("Date: " + monthconversion(month, i) + " " + str(daylist[i]) + ", " + str(y
+specificmonth = int(input("What month would you like to see? (Enter the month number) "))
+specmonth(specificmonth)
