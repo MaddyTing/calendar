@@ -88,6 +88,8 @@ while(enterevent != "NO"):
 printallevents()
 
 specificmonth = int(input("What month would you like to see? (Enter the month number) "))
+
+# Checking to see if specificmonth is valid
 if(specificmonth < 1 or specificmonth > 12):
     print("\nInvalid month, sorry! Maybe try again? :)")
 else:
