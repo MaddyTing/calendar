@@ -43,20 +43,19 @@ def addtolist(eventname, month, day, year):
     yearlist.append(year)
  
 def monthconversion(monthnum):
-    j = monthlist[monthnum]
-    return monthname[j - 1]
-
+    return monthname[monthnum - 1]
+'''
 for x in range(len(eventlist)):
         if(str(monthlist[x]).find(str(specificmonth)) > -1):
             print(eventlist[x])
-
+'''
 def specmonth(specificmonth):
     print("\n********** Events in " + monthconversion(specificmonth) + " **********")
 
     for x in range(len(eventlist)):
         if(str(monthlist[x]).find(str(specificmonth)) > -1):
             print(eventlist[x])
-            print("Date: " + monthconversion(x) + " " + str(daylist[x]) + ", " + str(yearlist[x]))
+            print("Date: " + monthconversion(monthlist[x]) + " " + str(daylist[x]) + ", " + str(yearlist[x]))
 
 def addnewevent(eventname, month, day, year):
     #Checking validity of month, day, year
@@ -76,7 +75,7 @@ def printallevents():
     print("******************** List of Events ********************")
     for i in range(len(eventlist)):
         print(eventlist[i])
-        print("Date: " + monthconversion(i) + " " + str(daylist[i]) + ", " + str(yearlist[i]))
+        print("Date: " + monthconversion(monthlist[i]) + " " + str(daylist[i]) + ", " + str(yearlist[i]))
 
 ##################  MAIN
 
