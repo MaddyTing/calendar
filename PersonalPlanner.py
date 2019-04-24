@@ -25,14 +25,19 @@ def addnewevent(eventname, month, day, year):
     # Checking validity of month, day, year, then adds event
     if(month > 12 or month < 1):
         month = 1
+        print("You entered an invalid month for the event, " + eventname)
     if(year < 1):
         year = 1
+        print("You entered an invalid year for the event, " + eventname)
     if(month == 4 or month == 6 or month == 9 or month == 11 and day > 30):
         day = 1
+        print("You entered an invalid day for the month you entered for the event, " + eventname)
     if(month == 2 and day > 29):
         day = 1
+        print("You entered an invalid day for the month you entered for the event, " + eventname)
     if(day < 1 or day > 31):
         day = 1
+        print("You entered an invalid day for the event, " + eventname)
     addtolist(eventname, month, day, year)
 
 def monthconversion(monthnum):
@@ -41,7 +46,7 @@ def monthconversion(monthnum):
     
 def printallevents():
     # Prints all events
-    print("******************** List of Events ********************")
+    print("\n******************** List of Events ********************")
     
     for i in range(len(eventlist)):
         print(eventlist[i])
