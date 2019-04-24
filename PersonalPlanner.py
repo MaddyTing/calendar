@@ -1,3 +1,8 @@
+# Madeleine Ting
+
+# Period 2
+
+# Assignment 9: Personal Organizer
 
 ##################  LISTS
 
