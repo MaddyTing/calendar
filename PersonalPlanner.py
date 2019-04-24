@@ -20,45 +20,25 @@ Print events in a specific month
 
 '''
 
-
-'''
-eventname = input("Enter the event name: ")
-month = int(input("Month: "))
-day = int(input("Day: "))
-year = int(input("Year: "))
-enterevent = input("Do you want to enter another date? NO to stop. ")
-'''
+##################  LISTS
 
 eventlist = []
 monthlist = []
 daylist = []
 yearlist = []
-monthname = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+monthname = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     
+##################  FUNCTIONS
 
 def addtolist(eventname, month, day, year):
+    # Adds event name, month, day, and year to the proper list
     eventlist.append(eventname)
     monthlist.append(month)
     daylist.append(day)
     yearlist.append(year)
  
-def monthconversion(monthnum):
-    return monthname[monthnum - 1]
-'''
-for x in range(len(eventlist)):
-        if(str(monthlist[x]).find(str(specificmonth)) > -1):
-            print(eventlist[x])
-'''
-def specmonth(specificmonth):
-    print("\n********** Events in " + monthconversion(specificmonth) + " **********")
-
-    for x in range(len(eventlist)):
-        if(str(monthlist[x]).find(str(specificmonth)) > -1):
-            print(eventlist[x])
-            print("Date: " + monthconversion(monthlist[x]) + " " + str(daylist[x]) + ", " + str(yearlist[x]))
-
 def addnewevent(eventname, month, day, year):
-    #Checking validity of month, day, year
+    # Checking validity of month, day, year, then adds event
     if(month > 12 or month < 1):
         month = 1
     if(year < 1):
@@ -71,13 +51,31 @@ def addnewevent(eventname, month, day, year):
         day = 1
     addtolist(eventname, month, day, year)
 
+def monthconversion(monthnum):
+    # Converts month number to month name
+    return monthname[monthnum]
+    
 def printallevents():
+    # Prints all events
     print("******************** List of Events ********************")
+    
     for i in range(len(eventlist)):
         print(eventlist[i])
         print("Date: " + monthconversion(monthlist[i]) + " " + str(daylist[i]) + ", " + str(yearlist[i]))
 
-##################  MAIN
+def specmonth(specificmonth):
+    # Prints all events in the specified month
+    print("\n********** Events in " + monthconversion(specificmonth) + " **********")
+
+    for x in range(len(eventlist)):
+        if(str(monthlist[x]).find(str(specificmonth)) > -1):
+            print(eventlist[x])
+            print("Date: " + monthconversion(monthlist[x]) + " " + str(daylist[x]) + ", " + str(yearlist[x]))
+
+
+##################  MAIN   ##################
+
+##################  ASKING USER FOR EVENTS
 
 eventname = input("Enter the event name: ")
 month = int(input("Month: "))
@@ -96,7 +94,8 @@ while(enterevent != "NO"):
     addnewevent(eventname, month, day, year)
     enterevent = input("Do you want to enter another date? NO to stop. ")
 
-#### ONCE FINISHED
+##################  PRINTING OUT LISTS - ALL EVENTS AND SPECIFIC MONTH
+
 printallevents()
 
 specificmonth = int(input("What month would you like to see? (Enter the month number) "))
